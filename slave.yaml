@@ -1,0 +1,27 @@
+kind: Template
+apiVersion: v1
+labels:
+  template: docker-slave
+  role: jenkins-slave
+
+objects:
+
+- kind: ImageStream
+  apiVersion: v1
+  metadata:
+    annotations:
+      openshift.io/display-name:  'docker-slave'
+      slave-label: 'docker-slave'
+    name: 'docker-slave'
+#    namespace: jenkins
+  spec:
+    dockerImageRepository: docker.io/alanbchristie/jenkins-slave-docker-centos7
+    tags:
+    - annotations:
+        description: Blah
+        openshift.io/display-name: 'docker-slave'
+        slave-label: 'docker-slave'
+      from:
+        kind: DockerImage
+        name: docker.io/alanbchristie/jenkins-slave-docker-centos7:latest
+      name: 'docker-slave'

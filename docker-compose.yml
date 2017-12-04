@@ -1,0 +1,7 @@
+version: '2.1'
+
+services:
+
+  lister:
+    image: alanbchristie/jenkins-slave-docker-centos7:latest
+    build: .
