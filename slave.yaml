@@ -13,6 +13,11 @@ parameters:
     The name by which this image is known to the Jenkins agent.
     The value of the agent label.
 
+- name: DISPLAY_NAME
+  value: Jenkins Docker Slave Image
+  description: >
+    A short phrase used as the display name for the image
+
 - name: REGISTRY
   value: docker.io
   description: >
@@ -38,15 +43,12 @@ objects:
 - kind: ImageStream
   apiVersion: v1
   metadata:
-    annotations:
-      openshift.io/display-name:  ${{SLAVE_LABEL}}
-      slave-label: ${{SLAVE_LABEL}}
     name: ${{SLAVE_LABEL}}
   spec:
     dockerImageRepository: ${REGISTRY}/${PROJECT}/${IMAGE}
     tags:
     - annotations:
-        openshift.io/display-name: ${{SLAVE_LABEL}}
+        openshift.io/display-name: "${DISPLAY_NAME}"
         slave-label: ${{SLAVE_LABEL}}
       from:
         kind: DockerImage
