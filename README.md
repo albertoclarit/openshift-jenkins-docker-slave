@@ -1,5 +1,5 @@
 # Jenkins Slave (Docker)
-An OpenShift Jenkins slave image built on the OpenShift jenkins Maven slave.
+An OpenShift Jenkins slave image built on the OpenShift Jenkins Maven slave.
 This image adds docker and docker-compose to the image.
 
 ## Building
@@ -9,7 +9,7 @@ Build and tag the image...
 
 ## Deploying
 Here, we'll deploy to the Docker hub. It's free and simple. We just need to
-tag our image (with something useful like `2017.1`) and then push it.
+tag our image and then push it.
 
     $ docker login -u alanbchristie
     [...]
