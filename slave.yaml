@@ -1,8 +1,37 @@
 kind: Template
 apiVersion: v1
 labels:
-  template: docker-slave
+  template: slave
+  app: slave
   role: jenkins-slave
+
+parameters:
+
+- name: SLAVE_LABEL
+  value: docker-slave
+  description: >
+    The name by which this image is known to the Jenkins agent.
+    The value of the agent label.
+
+- name: REGISTRY
+  value: docker.io
+  description: >
+    The Docker registry
+
+- name: PROJECT
+  value: alanbchristie
+  description: >
+    The Docker project or Image owner
+
+- name: IMAGE
+  value: jenkins-slave-docker-centos7
+  description: >
+    The Docker image name
+
+- name: TAG
+  value: latest
+  description: >
+    The Docker image tag
 
 objects:
 
@@ -10,18 +39,16 @@ objects:
   apiVersion: v1
   metadata:
     annotations:
-      openshift.io/display-name:  'docker-slave'
-      slave-label: 'docker-slave'
-    name: 'docker-slave'
-#    namespace: jenkins
+      openshift.io/display-name:  ${{SLAVE_LABEL}}
+      slave-label: ${{SLAVE_LABEL}}
+    name: ${{SLAVE_LABEL}}
   spec:
-    dockerImageRepository: docker.io/alanbchristie/jenkins-slave-docker-centos7
+    dockerImageRepository: ${REGISTRY}/${PROJECT}/${IMAGE}
     tags:
     - annotations:
-        description: Blah
-        openshift.io/display-name: 'docker-slave'
-        slave-label: 'docker-slave'
+        openshift.io/display-name: ${{SLAVE_LABEL}}
+        slave-label: ${{SLAVE_LABEL}}
       from:
         kind: DockerImage
-        name: docker.io/alanbchristie/jenkins-slave-docker-centos7:latest
-      name: 'docker-slave'
+        name: ${REGISTRY}/${PROJECT}/${IMAGE}:${TAG}
+      name: ${{TAG}}
