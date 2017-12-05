@@ -44,6 +44,9 @@ agent:
     slave-based image streams once, during initialisation. So, if you add a
     slave stream after jenkins was started it'll need to be restarted.
 
+>   At the moment I have not solved the `how to actually run docker commands`
+    in the container - when I do I'll update this section of the README.
+
 ---
 
 _Alan B. Christie_  
