@@ -54,3 +54,5 @@ objects:
         kind: DockerImage
         name: ${REGISTRY}/${PROJECT}/${IMAGE}:${TAG}
       name: ${{TAG}}
+      importPolicy:
+        scheduled: true
