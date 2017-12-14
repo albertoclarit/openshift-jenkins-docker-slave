@@ -1,3 +1,22 @@
+# An OpenShift slave image template.
+#
+# oc process -f slave.yaml | oc create -f -
+#
+# This is a template for an ImageStream recognised by Jenkins as a viable
+# image for the creation of slave instances due to the presence of the label
+# `role` with value `jenkins-slave`. We refer to this image in our
+# Jenkins pipeline agent with the label defined by `SLAVE_LABEL`
+# (`docker-slave` by default), i.e.:
+#
+#   agent {
+#     label 'docker-slave'
+#   }
+#
+# For more information refer to this project's README.md
+#
+# Alan Christie
+# December 2017
+
 kind: Template
 apiVersion: v1
 labels:

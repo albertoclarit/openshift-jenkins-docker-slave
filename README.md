@@ -40,11 +40,14 @@ agent:
       label 'docker-slave'
     }
 
->   You may need to re-deploy Jenkins (_bounce it_) because it only looks for
-    slave-based image streams once, during initialisation. So, if you add a
-    slave stream after jenkins was started it'll need to be restarted.
+>   You may need to re-deploy Jenkins (_bounce its Pod_) because it only looks
+    for slave-based image streams once, during initialisation. So, if you add a
+    slave stream after jenkins was started it'll need to be restarted. When the
+    image stream has been recognised you should find it on the
+    `Jenkins -> Manage Jenkins -> Configure System` page as a new image
+    (with your chosen Name) in the `Kubernetes` section.
 
->   At the moment I have not solved the `how to actually run docker commands`
+>   At the moment I have not solved the _how to actually run docker commands_
     in the container - when I do I'll update this section of the README.
 
 ---
