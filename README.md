@@ -1,4 +1,4 @@
-# An Jenkins Docker Slave Image (for OpenShift)
+# A Jenkins Docker Slave Image (for OpenShift)
 This is a Jenkins slave image built on the OpenShift Jenkins Maven
 slave that adds docker and docker-compose to the image. It should be
 suitable for OpenShift Origin v3.6 deployments. A matching
