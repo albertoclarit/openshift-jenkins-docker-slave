@@ -8,6 +8,13 @@ image stream template is also included.
     their [Jenkins] service and general information on [builds] and image
     streams.
 
+>   NOTE: This repo is now frozen. I have transferred the IP of this material
+    to Informatics Matters. You can find the latest-and-greatest version of my
+    Docker/Container/OpenShift/Jenkins work there
+    (https://github.com/InformaticsMatters/openshift-jenkins-buildah-slave)
+    where we now use `buildah`, `podman` and `skopeo` to build, inspect and
+    publish container images rather than using `docker` itself.
+     
 ## Building the image
 Build and tag the image (I've successfully used Docker 17.09.0-ce and
 docker-compose v1.16.1 to build the image)...
