@@ -19,6 +19,8 @@
 
 kind: Template
 apiVersion: v1
+metadata:
+    name: jenkins-slave-template
 labels:
   template: slave
   app: slave
@@ -43,12 +45,12 @@ parameters:
     The Docker registry
 
 - name: PROJECT
-  value: alanbchristie
+  value: albertoclarit
   description: >
     The Docker project or Image owner
 
 - name: IMAGE
-  value: jenkins-slave-docker-centos7
+  value: jenkins-slave-docker-gradle-centos7
   description: >
     The Docker image name
 

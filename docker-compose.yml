@@ -3,5 +3,5 @@ version: '2.1'
 services:
 
   lister:
-    image: alanbchristie/jenkins-slave-docker-centos7:latest
+    image: albertoclarit/jenkins-slave-docker-gradle-centos7:1.0.9
     build: .

@@ -1,0 +1,22 @@
+## login to xhvm
+
+https://gist.github.com/jpapejr/3fd353932cdc22445a69c8a6e03f08b3
+docker run -it --privileged --pid=host debian nsenter -t 1 -m -u -n -i sh
+
+docker rm $(docker ps -qa)
+
+
+https://gist.github.com/bastman/5b57ddb3c11942094f8d0a97d461b430
+
+docker volume prune
+
+docker tag albertoclarit/jenkins-slave-docker-gradle-centos7:1.0.9 albertoclarit/jenkins-slave-docker-gradle-centos7:latest
+
+docker push albertoclarit/jenkins-slave-docker-gradle-centos7
+
+
+
+https://www.cyberciti.biz/faq/check-running-services-in-rhel-redhat-fedora-centoslinux/
+https://blog.openshift.com/getting-any-docker-image-running-in-your-own-openshift-cluster/
+https://docs.openshift.com/enterprise/3.2/admin_guide/manage_scc.html
+oc adm policy add-scc-to-user anyuid -z default
