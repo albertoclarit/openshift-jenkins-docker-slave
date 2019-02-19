@@ -10,7 +10,7 @@ https://gist.github.com/bastman/5b57ddb3c11942094f8d0a97d461b430
 
 docker volume prune
 
-docker tag albertoclarit/jenkins-slave-docker-gradle-centos7:1.0.9 albertoclarit/jenkins-slave-docker-gradle-centos7:latest
+docker tag albertoclarit/jenkins-slave-docker-gradle-centos7:1.0.10 albertoclarit/jenkins-slave-docker-gradle-centos7:latest
 
 docker push albertoclarit/jenkins-slave-docker-gradle-centos7
 
@@ -20,3 +20,10 @@ https://www.cyberciti.biz/faq/check-running-services-in-rhel-redhat-fedora-cento
 https://blog.openshift.com/getting-any-docker-image-running-in-your-own-openshift-cluster/
 https://docs.openshift.com/enterprise/3.2/admin_guide/manage_scc.html
 oc adm policy add-scc-to-user anyuid -z default
+
+
+===================
+
+docker build  -t albertoclarit/jenkins-slave-docker-gradle-centos7:1.0.10 . && \
+docker tag   albertoclarit/jenkins-slave-docker-gradle-centos7:1.0.10   albertoclarit/jenkins-slave-docker-gradle-centos7:latest && \
+docker push  albertoclarit/jenkins-slave-docker-gradle-centos7
