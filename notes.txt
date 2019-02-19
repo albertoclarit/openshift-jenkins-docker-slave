@@ -24,6 +24,6 @@ oc adm policy add-scc-to-user anyuid -z default
 
 ===================
 
-docker build  -t albertoclarit/jenkins-slave-docker-gradle-centos7:1.0.10 . && \
-docker tag   albertoclarit/jenkins-slave-docker-gradle-centos7:1.0.10   albertoclarit/jenkins-slave-docker-gradle-centos7:latest && \
+docker build  -t albertoclarit/jenkins-slave-docker-gradle-centos7:1.0.16 . && \
+docker tag   albertoclarit/jenkins-slave-docker-gradle-centos7:1.0.16   albertoclarit/jenkins-slave-docker-gradle-centos7:latest && \
 docker push  albertoclarit/jenkins-slave-docker-gradle-centos7
