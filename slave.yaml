@@ -50,7 +50,7 @@ parameters:
     The Docker project or Image owner
 
 - name: IMAGE
-  value: jenkins-slave-docker-gradle-centos7
+  value: jenkins-slave-docker-gradle-centos7-new
   description: >
     The Docker image name
 
@@ -66,7 +66,7 @@ objects:
   metadata:
     name: ${{SLAVE_LABEL}}
   spec:
-    dockerImageRepository: ${REGISTRY}/${PROJECT}/${IMAGE}
+    dockerImageRepository: ${REGISTRY}/${PROJECT}/${IMAGE}/${TAG}
     tags:
     - annotations:
         openshift.io/display-name: "${DISPLAY_NAME}"

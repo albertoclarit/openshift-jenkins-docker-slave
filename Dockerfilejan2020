@@ -3,7 +3,7 @@ FROM openshift/jenkins-slave-base-centos7
 MAINTAINER Ben Parees <bparees@redhat.com>
 
 ENV MAVEN_VERSION=3.3 \
-    GRADLE_VERSION=6.1.1 \
+    GRADLE_VERSION=4.2.1 \
     BASH_ENV=/usr/local/bin/scl_enable \
     ENV=/usr/local/bin/scl_enable \
     PROMPT_COMMAND=". /usr/local/bin/scl_enable" \
@@ -16,8 +16,7 @@ ENV NODEJS_VERSION=4.4 \
 
 # Install Maven
 # Install NodeJS
-RUN INSTALL_PKGS="java-1.8.0-openjdk-devel.x86_64 java-1.8.0-openjdk-devel.i686 rh-maven33* gcc-c++ make nodejs" && \
-    curl  -sL https://rpm.nodesource.com/setup_12.x | bash - && \
+RUN INSTALL_PKGS="java-1.8.0-openjdk-devel.x86_64 java-1.8.0-openjdk-devel.i686 rh-maven33* rh-nodejs4 rh-nodejs4-npm rh-nodejs4-nodejs-nodemon " && \
     yum install -y centos-release-scl-rh && \
     ln -s /usr/lib/node_modules/nodemon/bin/nodemon.js /usr/bin/nodemon && \
     yum install -y --enablerepo=centosplus --setopt=tsflags=nodocs  $INSTALL_PKGS && \
@@ -27,7 +26,6 @@ RUN INSTALL_PKGS="java-1.8.0-openjdk-devel.x86_64 java-1.8.0-openjdk-devel.i686 
     ln -s /opt/gradle-${GRADLE_VERSION} /opt/gradle && \
     rpm -V  java-1.8.0-openjdk-devel.x86_64 rh-maven33 $x86_EXTRA_RPMS && \
     yum clean all -y && \
-    node -v  && npm -v && \
     mkdir -p $HOME/.m2 && \
     mkdir -p $HOME/.gradle
 
